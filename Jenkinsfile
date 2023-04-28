@@ -22,9 +22,18 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml'
                     jacoco(execPattern: '**/build/jacoco/*.exec',classPattern: '**/build/classes/java/main',sourcePattern: '**/src/main')
-                    pitmutation killRatioMustImprove: false, minimumKillRatio: 50.0, mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
                 }
             }
+        }
+        stage('Mutation Testing') {
+          steps {
+            'mvn org.pitest:pitest-maven:mutationCoverage'
+          }
+          post {
+            always {
+              'pitmutation killRatioMustImprove: false, minimumKillRatio: 50.0, mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
+            }
+          }
         }
         stage('SonarQube SAST Test') {
             steps {
