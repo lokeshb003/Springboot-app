@@ -22,6 +22,7 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml'
                     jacoco(execPattern: '**/build/jacoco/*.exec',classPattern: '**/build/classes/java/main',sourcePattern: '**/src/main')
+                    pitmutation killRatioMustImprove: false, minimumKillRatio: 50.0, mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
                 }
             }
         }
