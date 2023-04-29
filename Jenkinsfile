@@ -37,11 +37,14 @@ pipeline {
         }
         stage('SonarQube SAST Test') {
             steps {
-               sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=project-ci-cd -Dsonar.host.url=https://sonar.melospiza.in -Dsonar.login=sqp_18d354cb569562ace17859671a35783986a3e520'
-
-               withSonarQubeEnv('sonar') {
-                 waitForQualityGate abortPipeline: true
-               }
+              withSonarQubeEnv('sonar') {
+                sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=project-ci-cd -Dsonar.host.url=https://sonar.melospiza.in -Dsonar.login=sqp_18d354cb569562ace17859671a35783986a3e520'
+              }
+              timeout(time: 2, unit: 'MINUTES') {
+                script {
+                  waitForQualityGate abortPipeline: true
+                }
+              }
             }
         }
         stage('Build Docker Image') {
@@ -55,6 +58,6 @@ pipeline {
             steps {
                 sh 'trivy image ${IMAGE_NAME}'
             }
-        }
+        }    
     }
 }
