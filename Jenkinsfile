@@ -38,6 +38,7 @@ pipeline {
         stage('SonarQube SAST Test') {
             steps {
                sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=project-ci-cd -Dsonar.host.url=https://sonar.melospiza.in -Dsonar.login=sqp_18d354cb569562ace17859671a35783986a3e520'
+               waitForQualityGate abortPipeline: true
             }
         }
         stage('Build Docker Image') {
