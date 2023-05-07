@@ -52,9 +52,13 @@
 		</dependency>
 	</dependencies>
         <distributionManagement>
+          <repository>
+            <id>nexus-snapshots</id>
+            <url>https://nexus.lokii.tech/repository/releases/</url>
+          </repository>
           <snapshotRepository>
             <id>nexus-snapshots</id>
-            <url>https://nexus.lokii.tech</url>
+            <url>https://nexus.lokii.tech/repository/snapshots/</url>
           </snapshotRepository>
         </distributionManagement>
 
