@@ -54,11 +54,11 @@
         <distributionManagement>
           <repository>
             <id>nexus-snapshots</id>
-            <url>https://nexus.lokii.tech/repository/releases/</url>
+            <url>https://nexus.lokii.tech/repository/nexus-snapshots/</url>
           </repository>
           <snapshotRepository>
             <id>nexus-snapshots</id>
-            <url>https://nexus.lokii.tech/repository/snapshots/</url>
+            <url>https://nexus.lokii.tech/repository/nexus-snapshots/</url>
           </snapshotRepository>
         </distributionManagement>
 
@@ -165,7 +165,7 @@
                              </executions>
                              <configuration>
                                <serverId>admin</serverId>
-                               <nexusUrl>https://nexus.lokii.tech/nexus</nexusUrl>
+                               <nexusUrl>https://nexus.lokii.tech/</nexusUrl>
                                <skipStaging>true</skipStaging>
                              </configuration>
                            </plugin>
