@@ -163,7 +163,7 @@
                              </executions>
                              <configuration>
                                <serverId>admin</serverId>
-                               <nexusUrl>https://nexus.lokii.tech/</nexusUrl>
+                               <nexusUrl>http://localhost:8081</nexusUrl>
                                <skipStaging>true</skipStaging>
                              </configuration>
                            </plugin>
