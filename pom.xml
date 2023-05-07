@@ -52,18 +52,11 @@
 		</dependency>
 	</dependencies>
         <distributionManagement>
-          <snapshotsRepository>
+          <snapshotRepository>
             <id>nexus-snapshots</id>
             <url>https://nexus.lokii.tech</url>
-          </snapshotsRepository>
+          </snapshotRepository>
         </distributionManagement>
-        <servers>
-          <server>
-            <id>nexus-snapshots</id>
-            <username>admin</username>
-            <password>kepler22b</password>
-          </server>
-        </servers>
 
 	<build>
 		<plugins>
@@ -151,7 +144,7 @@
                              <version>1.5.1</version>
                              <executions>
                                <execution>
-                                 <id>default-deploy<?id>
+                                 <id>default-deploy</id>
                                  <phase>deploy</phase>
                                  <goals>
                                    <goal>deploy</goal>
