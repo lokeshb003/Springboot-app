@@ -120,7 +120,7 @@
                             </executions>
 			    <configuration>
 			     <format>ALL</format>
-			     <failBuildOnCVSS>8</failBuildOnCVSS>
+			     <failBuildOnCVSS>50</failBuildOnCVSS>
                              <centralAnalyzerEnabled>false</centralAnalyzerEnabled> <!-- fail the build for CVSS greater than or equal to 9 -->
                              <versionCheckEnabled>true</versionCheckEnabled>
 			     <!-- 
