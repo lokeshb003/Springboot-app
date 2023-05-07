@@ -116,6 +116,7 @@
                                 <goals>
                                   <goal>check</goal>
                                 </goals>
+                              </execution>
                             </executions>
 			    <configuration>
 			     <format>ALL</format>
