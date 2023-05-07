@@ -111,10 +111,17 @@
 			    <groupId>org.owasp</groupId>
 			    <artifactId>dependency-check-maven</artifactId>
 			    <version>6.1.6</version>
+                            <executions>
+                              <execution>
+                                <goals>
+                                  <goal>check</goal>
+                                </goals>
+                            </executions>
 			    <configuration>
 			     <format>ALL</format>
-			     <failBuildOnCVSS>8</failBuildOnCVSS> <!-- fail the build for CVSS greater than or equal to 9 -->
-
+			     <failBuildOnCVSS>8</failBuildOnCVSS>
+                             <centralAnalyzerEnabled>false</centralAnalyzerEnabled> <!-- fail the build for CVSS greater than or equal to 9 -->
+                             <versionCheckEnabled>true</versionCheckEnabled>
 			     <!-- 
 			      use internal mirroring of CVE contents 
 			      Suppress files 
