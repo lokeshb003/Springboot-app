@@ -1,0 +1,32 @@
+# Java Gradle CircleCI 2.0 configuration file
+# See: https://circleci.com/docs/2.0/language-java/
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: maven:3.3-jdk-8
+    stages:
+        - checkout
+        - compile-springboot-app:
+            command: mvn compile
+        - build-springboot-app:
+            command: mvn clean package -DskipTests=true
+        - test-springboot-app:
+            command: mvn test
+        - create-a-docker-image:
+            command: docker build -t lokeshb003/circle-ci-test:latest
+        - login-to-docker-hub-registry:
+            command: docker login -u lokeshb003 -p kepler22b
+        - push-the-docker-image-to-the-registry:
+            command: docker push lokeshb003/circle-ci-test:latest
+workflow:
+  build:
+    - checkout
+    - compile-springboot-app
+    - build-springboot-app
+    - test-springboot-app
+    - create-a-docker-image
+    - login-to-docker-hub-registry
+    - push-the-docker-image-to-the-registry
+  
