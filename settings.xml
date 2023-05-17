@@ -54,3 +54,13 @@
     <activeProfile>artifactory</activeProfile>
   </activeProfiles>
 </settings>
+<<<<<<< HEAD
+=======
+<servers>
+   <server>
+     <id>nx-admin</id>
+     <username>admin</username>
+     <password>kepler22b</password>
+   </server>
+</servers>
+>>>>>>> 011d435 (COmmited)
