@@ -52,15 +52,12 @@
 		</dependency>
 	</dependencies>
         <distributionManagement>
-          <repository>
-            <id>nexus-snapshots</id>
-            <url>https://nexus.lokii.tech/repository/nexus-snapshots/</url>
-          </repository>
-          <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>https://nexus.lokii.tech/repository/nexus-snapshots/</url>
-          </snapshotRepository>
-        </distributionManagement>
+    	  <snapshotRepository>
+            <id>snapshots</id>
+            <name>a0uacotpkixlw-artifactory-primary-0-snapshots</name>
+            <url>https://lokeshb003.jfrog.io/artifactory/libs-snapshot</url>
+    	  </snapshotRepository>
+	</distributionManagement>
 
 	<build>
 		<plugins>
