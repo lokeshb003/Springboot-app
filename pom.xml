@@ -55,8 +55,8 @@
         <distributionManagement>
     	  <snapshotRepository>
             <id>snapshots</id>
-            <name>a0uacotpkixlw-artifactory-primary-0-snapshots</name>
-            <url>https://lokeshb003.jfrog.io/artifactory/libs-snapshot</url>
+            <name>maven-snapshots</name>
+            <url>http://localhost:8081</url>
     	  </snapshotRepository>
 	</distributionManagement>
 
@@ -164,6 +164,7 @@
                              <configuration>
                                <serverId>admin</serverId>
                                <nexusUrl>http://localhost:8081</nexusUrl>
+                               <repository>maven-snapshots</repository>
                                <skipStaging>true</skipStaging>
                              </configuration>
                            </plugin>
