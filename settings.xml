@@ -1,6 +1,6 @@
 <servers>
    <server>
-     <id>nx-admin</id>
+     <id>admin</id>
      <username>admin</username>
      <password>kepler22b</password>
    </server>
