@@ -56,7 +56,7 @@
     	  <snapshotRepository>
             <id>snapshots</id>
             <name>maven-snapshots</name>
-            <url>http://localhost:8081/repository/maven-snapshots/</url>
+            <url>http://localhost:8081/repository/nexus-snapshots/</url>
     	  </snapshotRepository>
 	</distributionManagement>
 
@@ -163,8 +163,8 @@
                              </executions>
                              <configuration>
                                <serverId>nx-admin</serverId>
-                               <nexusUrl>http://localhost:8081/repository/maven-snapshots/</nexusUrl>
-                               <repository>maven-snapshots</repository>
+                               <nexusUrl>http://localhost:8081/repository/nexus-snapshots/</nexusUrl>
+                               <repository>nexus-snapshots</repository>
                                <skipStaging>true</skipStaging>
                              </configuration>
                            </plugin>
