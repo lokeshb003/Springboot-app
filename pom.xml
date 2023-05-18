@@ -154,7 +154,7 @@
                              <version>1.0.3</version>
                              <executions>
                                <execution>
-                                 <id>default-deploy</id>
+                                 <id>staging-deploy</id>
                                  <phase>deploy</phase>
                                  <goals>
                                    <goal>deploy</goal>
