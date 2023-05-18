@@ -162,7 +162,7 @@
                                </execution>
                              </executions>
                              <configuration>
-                               <serverId>admin</serverId>
+                               <serverId>nx-admin</serverId>
                                <nexusUrl>http://localhost:8081</nexusUrl>
                                <repository>maven-snapshots</repository>
                                <skipStaging>true</skipStaging>
