@@ -3,5 +3,6 @@
      <id>nx-admin</id>
      <username>admin</username>
      <password>kepler22b</password>
+     <serverUrl>http://localhost:8081/repository/maven-snapshots/</serverUrl>
    </server>
 </servers>
