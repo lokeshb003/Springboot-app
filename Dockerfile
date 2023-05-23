@@ -1,6 +1,6 @@
 FROM openjdk:17-alpine
 
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=target/numeric-0.0.1.jar
 WORKDIR .
 
 COPY . .
