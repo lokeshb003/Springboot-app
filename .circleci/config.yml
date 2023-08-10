@@ -12,7 +12,7 @@ jobs:
     # Be sure to update the Docker image tag below to openjdk version of your application.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
-      - image: cimg/openjdk:11.0
+      - image: ubuntu:latest 
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
@@ -20,12 +20,44 @@ jobs:
       - checkout
       # Use mvn clean and package as the standard maven build phase
       - run:
-          name: Build
-          command: mvn -B -DskipTests clean package
+          name: Install maven and all necessary packages
+          command: apt update && apt install maven openjdk-11-jdk -y
       # Then run your tests!
       - run:
-          name: Test
+          name: Package the application
+          command: mvn clean package -DskipTests=true
+      - run:
+          name: Test the application
           command: mvn test
+      - run:
+          name: PIT Mutation Testing
+          command: mvn org.pitest:pitest-maven:mutationCoverage
+      - run:
+          name: SonarQube SAST Testing
+          command: mvn
+      - run:
+          name: OWASP Dependency Check
+          command: mvn dependency-check:check
+      - run:
+          name: Trivy Image Scanning
+          command: bash trivy-image-scan.sh
+  Build-docker-image-and-push:
+    docker:
+      - image: docker:latest
+    steps:
+      - checkout
+
+      - run:
+          name: Build Docker Image
+          command: docker build -t $DOCKER_IMAGE .
+      - run:
+          name: Login to Dockerhub
+          command: docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
+      - run:
+          name: Push the image to Dockerhub Registry
+          command: docker push $DOCKER_IMAGE
+
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -34,3 +66,4 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+      - Build-docker-image-and-push
