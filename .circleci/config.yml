@@ -34,13 +34,10 @@ jobs:
           command: mvn org.pitest:pitest-maven:mutationCoverage
       - run:
           name: SonarQube SAST Testing
-          command: mvn
+          command: mvn clean verify sonar:sonar -Dsonar.projectKey=DevSecOps -Dsonar.projectName='DevSecOps' -Dsonar.host.url=http://49.50.93.22:9000 -Dsonar.token=sqp_392e06373de1ad453943ba82974938655e55dba2
       - run:
           name: OWASP Dependency Check
           command: mvn dependency-check:check
-      - run:
-          name: Trivy Image Scanning
-          command: bash trivy-image-scan.sh
   Build-docker-image-and-push:
     docker:
       - image: docker:latest
