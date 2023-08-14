@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout the GIT Repository') {
             steps {
-                checkout([$class:'GitSCM',branches: [[name: '*/main']],userRemoteConfigs:[[url: 'https://github.com/lokeshb003/Springboot-app']]])
+                checkout([$class:'GitSCM',branches: [[name: '*/master']],userRemoteConfigs:[[url: 'https://github.com/lokeshb003/Springboot-app']]])
             }
         }
         stage('Build the SpringBoot Application') {
