@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: springboot-app
+  name: springboot-app-deployment
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: springboot-app
+    strategy: {}
+    template:
+      metadata:
+        app: springboot-app
+      name: springboot-app-pod
+      spec:
+        containers:
+          - image: lokeshb003/springboot-app:latest
+            name: springboot-app-container
+            imagePullPolicy: Always
+            ports:
+              - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: springboot-app
+  name: springboot-app-service
+spec:
+  ports:
+   - port: 80
+     protocol: TCP
+     targetPort: 8080
+     nodePort: 30333
+  selector:
+    app: springboot-app
+  type: LoadBalancer
