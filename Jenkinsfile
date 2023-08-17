@@ -39,7 +39,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
               sh 'docker build -t ${IMAGE_NAME} .'
-              sh 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
+              sh 'docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}'
               sh 'docker push ${IMAGE_NAME}'
             }
         }
