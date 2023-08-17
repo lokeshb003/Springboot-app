@@ -8,7 +8,8 @@ spec:
   replicas: 10
   selector:
     matchLabels:
-      app: springboot-app
+      labels:
+        app: springboot-app
   strategy: {}
   template:
     metadata:
