@@ -9,18 +9,17 @@ spec:
   selector:
     matchLabels:
       app: springboot-app
-    strategy: {}
-    template:
-      metadata:
-        app: springboot-app
-      name: springboot-app-pod
-      spec:
-        containers:
-          - image: lokeshb003/springboot-app:latest
-            name: springboot-app-container
-            imagePullPolicy: Always
-            ports:
-              - containerPort: 8080
+  strategy: {}
+  template:
+    metadata:
+      app: springboot-app
+    spec:
+      containers:
+        - image: lokeshb003/springboot-app:latest
+          name: springboot-app-container
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
 
 ---
 
