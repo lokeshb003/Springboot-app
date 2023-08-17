@@ -45,7 +45,7 @@ pipeline {
         }
         stage('Trivy Image Scan') {
             steps {
-                sh 'trivy image ${IMAGE_NAME} --format json -o trivy-report.json'
+                sh 'docker run --rm aquasec/trivy image ${IMAGE_NAME}'
             }
         }
         stage('Deploy to Kubernetes') {
