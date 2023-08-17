@@ -8,12 +8,12 @@ spec:
   replicas: 10
   selector:
     matchLabels:
-      labels:
-        app: springboot-app
+      app: springboot-app
   strategy: {}
   template:
     metadata:
-      app: springboot-app
+      labels:
+        app: springboot-app
     spec:
       containers:
         - image: lokeshb003/springboot-app:latest
