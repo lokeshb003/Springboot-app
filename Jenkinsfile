@@ -35,7 +35,7 @@ pipeline {
         }
         stage('SonarQube SAST Test') {
             steps {
-              sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=DevSecOps -Dsonar.projectName=DevSecOps -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_26286555b416331e1412e37a3a8c2eff5017d6f0'
+              sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=DevSecOps -Dsonar.projectName=DevSecOps -Dsonar.host.url=http://49.50.93.22:9000 -Dsonar.token=sqp_965925ed89f0c8bed0ced103cd8e4b6b492d02e9'
             }
         }
         
