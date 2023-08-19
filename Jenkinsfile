@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME="lokeshb003/springboot-app:latest"
-        applicationURL="159.89.220.179"
+        applicationURL="170.64.254.221"
         applicationURI="compare/51"
         deployment_name="springboot-app-deployment"
         serviceName="springboot-app-service"
