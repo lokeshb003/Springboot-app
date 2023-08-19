@@ -5,6 +5,7 @@ pipeline {
         applicationURL="159.89.220.179"
         applicationURI="/increment/99"
         deployment_name="springboot-app-deployment"
+        serviceName="springboot-app-service"
     }
     stages {
         stage('Build the SpringBoot Application') {
