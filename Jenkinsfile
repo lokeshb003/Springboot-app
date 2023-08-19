@@ -4,8 +4,8 @@ pipeline {
         IMAGE_NAME="lokeshb003/springboot-app:latest"
         applicationURL="170.64.254.221"
         applicationURI="compare/51"
-        deployment_name="springboot-app-deployment"
-        serviceName="springboot-app-service"
+        deployment_name="devsecops"
+        serviceName="devsecops-svc"
     }
     stages {
         stage('Build the SpringBoot Application') {
