@@ -3,7 +3,7 @@ pipeline {
     environment {
         IMAGE_NAME="lokeshb003/springboot-app:latest"
         applicationURL="159.89.220.179"
-        applicationURI="increment/99"
+        applicationURI="compare/51"
         deployment_name="springboot-app-deployment"
         serviceName="springboot-app-service"
     }
