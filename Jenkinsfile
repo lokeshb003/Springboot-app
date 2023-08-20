@@ -4,7 +4,7 @@ pipeline {
         IMAGE_NAME="lokeshb003/springboot-app:latest"
         applicationURL="170.64.254.221"
         applicationURI="compare/51"
-        deployment_name="devsecops"
+        deployment_name="devsecopsgit "
         serviceName="devsecops-svc"
     }
     stages {
@@ -36,7 +36,7 @@ pipeline {
         }
         stage('SonarQube SAST Test') {
             steps {
-              sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=DevSecOps -Dsonar.projectName=DevSecOps -Dsonar.host.url=http://143.198.226.169:9000 -Dsonar.token=sqp_14e8379af2088c14029903180a4fcc4dc25b3e27'
+              sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=DevSecOps -Dsonar.projectName=DevSecOps -Dsonar.host.url=http://146.190.136.180:9000 -Dsonar.token=sqp_ee2806a90da18e3a35978750107aedca8c658cdc'
             }
         }
         
