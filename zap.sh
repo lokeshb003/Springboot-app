@@ -12,8 +12,8 @@ docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-weekly zap-api-scan.p
 
 exit_code=$?
 
-sudo mkdir -p owasp-zap-report
-sudo mv zap_report_scan.html owasp-zap-report
+mkdir -p owasp-zap-report
+mv zap_report_scan.html owasp-zap-report
 
 echo "Exit Code : $exit_code"
 
