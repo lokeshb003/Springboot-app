@@ -2,7 +2,8 @@
 
 
 kubesec_scan=$(curl -sSX POST --data-binary @"kube-deployment.yaml" https://v2.kubesec.io/scan)
-kubesec_scan_message=$(curl -sSX POST --data-binary @"kube-deployment.yaml" https://v2.kubesec.io/scan | jq .[0>kubesec_scan_score=$(curl -sSX POST --data-binary @"kube-deployment.yaml" https://v2.kubesec.io/scan | jq .[0].>
+kubesec_scan_message=$(curl -sSX POST --data-binary @"kube-deployment.yaml" https://v2.kubesec.io/scan | jq .[0].message -r)
+kubesec_scan_score=$(curl -sSX POST --data-binary @"kube-deployment.yaml" https://v2.kubesec.io/scan | jq .[0].score)
 
 echo $kubesec_scan >> kube-scan-report.json
 mkdir kube-sec
