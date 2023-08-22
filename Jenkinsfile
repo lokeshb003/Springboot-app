@@ -93,5 +93,15 @@ pipeline {
             }
           }
         }
+        stage('Kube Sec Scan') {
+          steps {
+            sh 'bash kube-sec-scan.sh'
+          }
+          post {
+            always {
+              publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'kube-sec', reportFiles: 'kube-scan-report.json', reportName: 'KUBE SEC SCAN REPORT', reportTitles: '', useWrapperFileDirectly: true])
+            }
+          }
+        }
     }
 }

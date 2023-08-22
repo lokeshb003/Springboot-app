@@ -5,6 +5,8 @@ kubesec_scan=$(curl -sSX POST --data-binary @"kube-deployment.yaml" https://v2.k
 kubesec_scan_message=$(curl -sSX POST --data-binary @"kube-deployment.yaml" https://v2.kubesec.io/scan | jq .[0>kubesec_scan_score=$(curl -sSX POST --data-binary @"kube-deployment.yaml" https://v2.kubesec.io/scan | jq .[0].>
 
 echo $kubesec_scan >> kube-scan-report.json
+mkdir kube-sec
+mv kube-scan-report.json kube-sec/
 
 if [[ "${kubesec_scan_score}" -ge 5 ]]; then
   echo "Score is $kubesec_scan_score"
