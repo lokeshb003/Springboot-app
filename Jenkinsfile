@@ -103,5 +103,10 @@ pipeline {
             }
           }
         }
+        stage('OPA Conftest') {
+          steps {
+            sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-rego.rego kube-deployment.yaml'
+          }
+        }
     }
 }
